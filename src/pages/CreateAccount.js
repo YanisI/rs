@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react'
 
 const CreateAccount = () => {
@@ -11,26 +10,29 @@ const CreateAccount = () => {
     const [email, setEmail] = useState("");
     const [dob, setDOB] = useState("");
 
-    const onSubmitHandler = () => {
-        axios({
-            method: 'post',
-            url: "https://cors-anywhere.herokuapp.com/http://localhost:8080/api/v1/person",
+    const onSubmitHandler = (e) => {
+
+        const reqBody = {
+            "username": username,
+            "firstname": firstname,
+            "lastname": lastName,
+            "password": password,
+            "email": email,
+            "dob": "1998-02-09"
+        }
+        e.preventDefault()
+
+        fetch("http://localhost:8080/api/v1/person", {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: {
-                "username": username,
-                "firstname": firstname,
-                "lastname": lastName,
-                "password": password,
-                "email": email,
-                "dob": "1998-02-09"
-            }
-        })
+            method : "post",
+            body : JSON.stringify(reqBody)
+        }) 
         .then(res => console.log(res))
-        
-        ;
+        .catch(e => console.log("Err : " + e));
     }
+
 
 
     return (
