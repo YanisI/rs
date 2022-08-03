@@ -1,0 +1,132 @@
+.createAccount {
+    height: 100vh;
+    background: linear-gradient(45deg, #FC466B, #35FEFB);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+
+        form {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 3rem;
+            height: 500px;
+            width: 700px;
+            border-radius: 40px;
+
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.5);
+
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: 50px;
+
+            .title {
+                grid-column-start: 1;
+                grid-column-end: span 2;
+                color: rgb(0, 0, 0);
+                font-weight: 500;
+                opacity: 0.7;
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            .t {
+                position: relative;
+                width: 100%;
+
+                input {
+                    width: 80%;
+                    height: 40px;
+                    background: transparent;
+                    border: none;
+                    border-left: 1px solid rgba(255, 255, 255, 0.3);
+                    border-top: 1px solid rgba(255, 255, 255, 0.3);
+                    padding: 0px 10px;
+                    border-radius: 50px;
+
+                    backdrop-filter: blur(5px);
+                    -webkit-backdrop-filter: blur(5px);
+
+                    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+
+                    color: black;
+                    font-weight: 500;
+                    transition: all 0.3s;
+
+                    &::placeholder {
+                        color: rgba(60, 60, 60, 0.5);
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+                    }
+
+                    &:hover,
+                    &:focus {
+                        background: rgba(255, 255, 255, 0.3)
+                    }
+                }
+
+                .label {
+                    background: none;
+                    color: black;
+                    position: absolute;
+                    top: -25px;
+                    left: 30%;
+                }
+            }
+
+            .last {
+                grid-column-start: 1;
+                grid-column-end: span 2;
+
+                input[type="submit"] {
+                    margin: 0 auto;
+                    cursor: pointer;
+                    color: rgb(102, 107, 180);
+
+                    &:hover {
+                        background: rgb(102, 107, 180);
+                        color: white;
+                    }
+
+                }
+
+            }
+
+
+        }
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .createAccount {
+        .container {
+            form {
+                width: 95vw;
+                overflow: scroll;
+                display: grid;
+                grid-template-columns: 1fr;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .t {
+
+                    grid-column-start: 1;
+                    grid-column-end: span 2;
+
+                }
+            }
+        }
+
+
+    }
+}
